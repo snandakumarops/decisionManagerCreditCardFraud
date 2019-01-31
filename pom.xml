@@ -4,6 +4,7 @@
 	<description>Drools Credit Card Fraud Detection Demo</description>
 	<artifactId>drools-credit-card-fraud</artifactId>
 	<groupId>com.redhat.demo.dm</groupId>
+	 <packaging>jar</packaging>
 	<version>1.0.0-SNAPSHOT</version>
 
 	<properties>
