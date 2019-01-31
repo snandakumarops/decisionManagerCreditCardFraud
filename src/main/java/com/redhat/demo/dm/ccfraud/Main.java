@@ -1,24 +1,14 @@
 package com.redhat.demo.dm.ccfraud;
 
-import java.math.BigDecimal;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Duration;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
-
 import com.google.gson.Gson;
-import org.apache.kafka.clients.consumer.ConsumerConfig;
+import com.redhat.demo.dm.ccfraud.domain.CountryCode;
+import com.redhat.demo.dm.ccfraud.domain.CreditCardTransaction;
+import com.redhat.demo.dm.ccfraud.domain.Terminal;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.Serdes;
-import org.apache.kafka.streams.KeyValue;
-import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
-import org.apache.kafka.streams.kstream.KStream;
-import org.apache.kafka.streams.kstream.KTable;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
@@ -29,9 +19,12 @@ import org.kie.api.time.SessionPseudoClock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.redhat.demo.dm.ccfraud.domain.CountryCode;
-import com.redhat.demo.dm.ccfraud.domain.CreditCardTransaction;
-import com.redhat.demo.dm.ccfraud.domain.Terminal;
+import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Main class of the demo project wich creates a new {@link CreditCardTransaction}, loads the previous transactions from a CSV file and uses
@@ -66,7 +59,7 @@ public class Main {
 		// event.
 
 		Properties props = new Properties();
-		props.put("bootstrap.servers", "localhost:9092");
+		props.put("bootstrap.servers", "kafka:9092");
 		props.put("group.id", "test");
 		props.put("enable.auto.commit", "true");
 		props.put("auto.commit.interval.ms", "1000");
@@ -78,7 +71,7 @@ public class Main {
 
 
 		KafkaConsumer consumer = new KafkaConsumer(props);
-		consumer.subscribe(Arrays.asList("tenone-test"));
+		consumer.subscribe(Arrays.asList("Events"));
 		int counter = 0;
 
 
