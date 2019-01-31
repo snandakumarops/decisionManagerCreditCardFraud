@@ -1,4 +1,4 @@
-package org.jboss.ddoyle.rhsummit2014.bags;
+package com.redhat.demo.dm.ccfraud;
 
 import com.redhat.demo.dm.ccfraud.domain.CreditCardTransaction;
 import java.util.Collection;
@@ -6,22 +6,22 @@ import java.util.ArrayList;
 
 declare CreditCardTransaction
     @role( event )
-    @timestamp( timestamp )    
+    @timestamp( timestamp )
 end
 
-declare PotentialFraudFact 
+declare PotentialFraudFact
 	creditCardNumber: long
 	transactions: java.util.ArrayList
 end
 
 rule "CC-Transactions last 15 minutes"
-when 
+when
 	accumulate ($cct: CreditCardTransaction() over window:time (15m) from entry-point Transactions;
-				$nrOfTransactions : count($cct), 
+				$nrOfTransactions : count($cct),
 				$list: collectList($cct);
 				$nrOfTransactions >= 4)
 	$c1: CreditCardTransaction() from $list
-	$c2: CreditCardTransaction(this != $c1, this after[0s, 10s] $c1) from $list				 
+	$c2: CreditCardTransaction(this != $c1, this after[0s, 10s] $c1) from $list
 then
 	System.out.println("\nFound 4 or more cc transactions in last 15 minutes of current transaction");
 	System.out.println("And within that collection, there are 2 transactions within 10 seconds of each other.\n");
