@@ -86,6 +86,7 @@ public class Main {
 				for (ConsumerRecord<String, String> record : records) {
 					System.out.print(record.value());
 					creditCardTransaction = new Gson().fromJson(record.value(), CreditCardTransaction.class);
+					LOGGER.info("creditCardTransaction"+ record.value());
 					processTransaction(creditCardTransaction);
 				}
 			}
@@ -114,16 +115,16 @@ public class Main {
 		if(ccTransactions == null) {
 			return;
 		}
-		LOGGER.debug("Found '" + ccTransactions.size() + "' transactions for creditcard: '" + ccTransaction.getCreditCardNumber() + "'.");
+		LOGGER.info("Found '" + ccTransactions.size() + "' transactions for creditcard: '" + ccTransaction.getCreditCardNumber() + "'.");
 
 		KieSession kieSession = kieContainer.newKieSession();
 		// Insert transaction history/context.
-		LOGGER.debug("Inserting credit-card transaction context into session.");
+		LOGGER.info("Inserting credit-card transaction context into session.");
 		for (CreditCardTransaction nextTransaction : ccTransactions) {
 			insert(kieSession, "Transactions", nextTransaction);
 		}
 		// Insert the new transaction event
-		LOGGER.debug("Inserting credit-card transaction event into session.");
+		LOGGER.info("Inserting credit-card transaction event into session.");
 		insert(kieSession, "Transactions", ccTransaction);
 		// And fire the rules.
 		kieSession.fireAllRules();
