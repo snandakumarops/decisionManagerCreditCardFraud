@@ -45,6 +45,7 @@ public class Main {
 	private static CreditCardTransactionRepository cctRepository = new InMemoryCreditCardTransactionRepository();
 
 	public static void main(String[] args) {
+		try{
 		// Load the Drools KIE-Container.
 		kieContainer = KIE_SERVICES.newKieClasspathContainer();
 
@@ -99,8 +100,9 @@ public class Main {
 
 		CreditCardTransaction incomingTransaction = new CreditCardTransaction(100, 12345, new BigDecimal(10.99), transactionTime,
 				new Terminal(1, CountryCode.US));
-		System.out.print("Need this format"+new Gson().toJson(incomingTransaction));
-		// Process the incoming transaction.
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 
