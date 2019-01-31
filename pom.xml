@@ -16,7 +16,13 @@
     <maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<dependencies>
-		
+		<!-- https://mvnrepository.com/artifact/org.drools/drools-maven-plugin -->
+<dependency>
+    <groupId>org.drools</groupId>
+    <artifactId>drools-maven-plugin</artifactId>
+    <version>6.0.0.CR5</version>
+</dependency>
+
 		<dependency>
       		<groupId>org.kie</groupId>
       		<artifactId>kie-ci</artifactId>
