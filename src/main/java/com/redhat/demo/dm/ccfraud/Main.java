@@ -72,7 +72,7 @@ public class Main {
 
 
 		KafkaConsumer consumer = new KafkaConsumer(props);
-		consumer.subscribe(Arrays.asList("Events"));
+		consumer.subscribe(Arrays.asList("events"));
 		int counter = 0;
 
 
