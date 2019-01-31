@@ -110,6 +110,19 @@
 					<mainClass>com.redhat.demo.dm.ccfraud.Main</mainClass>
 				</configuration>
 			</plugin>
+				<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>fabric8-maven-plugin</artifactId>
+				<version>3.1.80.redhat-000019</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>resource</goal>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
