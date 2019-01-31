@@ -14,25 +14,37 @@
 		<version.commons.lang>2.6</version.commons.lang>
 	</properties>
 	<dependencies>
+		
+		<dependency>
+      		<groupId>org.kie</groupId>
+      		<artifactId>kie-ci</artifactId>
+      		<version>${version.org.kie}</version>
+    		</dependency>
+		
+		 <dependency>
+      		<groupId>org.kie</groupId>
+      		<artifactId>kie-internal</artifactId>
+      		<version>${version.org.kie}</version>
+    		</dependency>
 
 		<!-- Drools dependencies. -->
 		<dependency>
 			<groupId>org.kie</groupId>
 			<artifactId>kie-api</artifactId>
 			<version>${version.org.kie}</version>
-			<scope>compile</scope>
+			
 		</dependency>
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-core</artifactId>
 			<version>${version.org.kie}</version>
-			<scope>compile</scope>
+			
 		</dependency>
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-compiler</artifactId>
 			<version>${version.org.kie}</version>
-			<scope>compile</scope>
+			
 		</dependency>
 		<!-- Third party dependencies. -->
 		<dependency>
