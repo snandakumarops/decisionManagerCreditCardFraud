@@ -60,7 +60,7 @@ public class Main {
 		// event.
 
 		Properties props = new Properties();
-		props.put("bootstrap.servers", "kafka:9092");
+		props.put("bootstrap.servers", "kafka.kafka.svc:9092");
 		props.put("group.id", "test");
 		props.put("enable.auto.commit", "true");
 		props.put("auto.commit.interval.ms", "1000");
