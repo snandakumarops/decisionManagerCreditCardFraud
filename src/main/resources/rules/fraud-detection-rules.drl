@@ -1,4 +1,4 @@
-package org.jboss.ddoyle.rhsummit2014.bags;
+package com.redhat.demo.dm.ccfraud;
 
 import com.redhat.demo.dm.ccfraud.domain.CreditCardTransaction;
 import java.util.Collection;
