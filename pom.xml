@@ -130,7 +130,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>io.radanalytics.eventstreamdecisions.App</mainClass>
+              <mainClass>com.redhat.demo.dm.ccfraud</mainClass>
             </manifest>
           </archive>
         </configuration>
