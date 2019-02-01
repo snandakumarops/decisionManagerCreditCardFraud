@@ -15,6 +15,13 @@ declare PotentialFraudFact
 	transactions: java.util.ArrayList
 end
 
+rule "Just Checking"
+when
+	1==1
+then
+	System.out.println("\n!!!! Rule executes!!!!\n");
+end
+
 rule "CC-Transactions last 15 minutes"
 when
 	accumulate ($cct: CreditCardTransaction() over window:time (15m) from entry-point Transactions;
