@@ -44,5 +44,15 @@ public class CreditCardTransaction {
 	public Terminal getTerminal() {
 		return terminal;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "CreditCardTransaction{" +
+				"transactionNumber=" + transactionNumber +
+				", creditCardNumber=" + creditCardNumber +
+				", amount=" + amount +
+				", timestamp=" + timestamp +
+				", terminal=" + terminal +
+				'}';
+	}
 }
