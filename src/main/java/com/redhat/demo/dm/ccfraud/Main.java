@@ -135,11 +135,12 @@ public class Main {
 		System.out.println("Inserting credit-card transaction event into session.");
 		insert(kieSession, "Transactions", ccTransaction);
 		// And fire the com.redhat.demo.dm.com.redhat.demo.dm.ccfraud.rules.
-		kieSession.fireAllRules();
-
+		int k = kieSession.fireAllRules();
+		System.out.println("Rule Fired"+k);
 		Collection<?> fraudResponse = kieSession.getObjects();
 
 		for(Object object: fraudResponse) {
+			
 			String jsonString = new Gson().toJson(object);
 			PotentialFraudFact potentialFraudFact = new Gson().fromJson(jsonString,PotentialFraudFact.class);
 			System.out.print("PotentialFraudFact"+potentialFraudFact);
