@@ -143,8 +143,12 @@ public class Main {
 			System.out.println("Object Check");
 			String jsonString = new Gson().toJson(object);
 			System.out.println("Object Check"+jsonString);
+			try{
 			PotentialFraudFact potentialFraudFact = new Gson().fromJson(jsonString,PotentialFraudFact.class);
 			System.out.print("PotentialFraudFact"+potentialFraudFact);
+			}catch(Exception e){
+			e.printStackTrace();
+			}
 //			CaseMgmt caseMgmt = new CaseMgmt();
 //			caseMgmt.invokeCase(potentialFraudFact);
 		}
