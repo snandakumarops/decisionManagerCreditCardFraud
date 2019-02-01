@@ -1,9 +1,0 @@
-/Users/sadhananandakumar/Downloads/drools-credit-card-fraud-detection-demo-master/src/main/java/com/redhat/demo/dm/ccfraud/Main.java
-/Users/sadhananandakumar/Downloads/drools-credit-card-fraud-detection-demo-master/src/main/java/com/redhat/demo/dm/ccfraud/FactsLoader.java
-/Users/sadhananandakumar/Downloads/drools-credit-card-fraud-detection-demo-master/src/main/java/com/redhat/demo/dm/ccfraud/domain/PotentialFraudFact.java
-/Users/sadhananandakumar/Downloads/drools-credit-card-fraud-detection-demo-master/src/main/java/com/redhat/demo/dm/ccfraud/CreditCardTransactionRepository.java
-/Users/sadhananandakumar/Downloads/drools-credit-card-fraud-detection-demo-master/src/main/java/com/redhat/demo/dm/ccfraud/InMemoryCreditCardTransactionRepository.java
-/Users/sadhananandakumar/Downloads/drools-credit-card-fraud-detection-demo-master/src/main/java/com/redhat/demo/dm/ccfraud/domain/CountryCode.java
-/Users/sadhananandakumar/Downloads/drools-credit-card-fraud-detection-demo-master/src/main/java/com/redhat/demo/dm/ccfraud/domain/CreditCardTransaction.java
-/Users/sadhananandakumar/Downloads/drools-credit-card-fraud-detection-demo-master/src/main/java/com/redhat/demo/dm/ccfraud/CaseMgmt.java
-/Users/sadhananandakumar/Downloads/drools-credit-card-fraud-detection-demo-master/src/main/java/com/redhat/demo/dm/ccfraud/domain/Terminal.java

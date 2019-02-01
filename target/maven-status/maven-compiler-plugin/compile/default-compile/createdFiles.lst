@@ -1,9 +1,0 @@
-com/redhat/demo/dm/ccfraud/domain/CreditCardTransaction.class
-com/redhat/demo/dm/ccfraud/CaseMgmt.class
-com/redhat/demo/dm/ccfraud/CreditCardTransactionRepository.class
-com/redhat/demo/dm/ccfraud/domain/CountryCode.class
-com/redhat/demo/dm/ccfraud/FactsLoader.class
-com/redhat/demo/dm/ccfraud/InMemoryCreditCardTransactionRepository.class
-com/redhat/demo/dm/ccfraud/Main.class
-com/redhat/demo/dm/ccfraud/domain/Terminal.class
-com/redhat/demo/dm/ccfraud/domain/PotentialFraudFact.class
