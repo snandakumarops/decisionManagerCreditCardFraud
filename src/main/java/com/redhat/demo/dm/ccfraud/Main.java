@@ -71,7 +71,7 @@ public class Main {
 			// event.
 
 			Properties props = new Properties();
-			props.put("bootstrap.servers", "localhost:9092");
+			props.put("bootstrap.servers", "kafka:9092");
 			props.put("group.id", "test");
 			props.put("enable.auto.commit", "true");
 			props.put("auto.commit.interval.ms", "1000");
@@ -83,7 +83,7 @@ public class Main {
 
 
 			KafkaConsumer consumer = new KafkaConsumer(props);
-			consumer.subscribe(Arrays.asList("tenone-test2"));
+			consumer.subscribe(Arrays.asList("events"));
 			int counter = 0;
 
 
