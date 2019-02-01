@@ -140,8 +140,9 @@ public class Main {
 		Collection<?> fraudResponse = kieSession.getObjects();
 
 		for(Object object: fraudResponse) {
-			
+			System.out.println("Object Check");
 			String jsonString = new Gson().toJson(object);
+			System.out.println("Object Check"+jsonString);
 			PotentialFraudFact potentialFraudFact = new Gson().fromJson(jsonString,PotentialFraudFact.class);
 			System.out.print("PotentialFraudFact"+potentialFraudFact);
 //			CaseMgmt caseMgmt = new CaseMgmt();
