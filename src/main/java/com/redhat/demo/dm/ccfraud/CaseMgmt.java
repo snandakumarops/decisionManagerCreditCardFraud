@@ -29,13 +29,17 @@ public class CaseMgmt {
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setRequestProperty("Authorization","Basic YWRtaW5Vc2VyOlJlZEhhdA==");
 
-            PotentialFraudFactCaseFile potentialFraudFactCaseFile = new PotentialFraudFactCaseFile(String.valueOf(potentialFraudFact.getCreditCardNumber()),potentialFraudFact.getTransactions().toString());
+             PotentialFraudFactCaseFile potentialFraudFactCaseFile = new PotentialFraudFactCaseFile(String.valueOf(potentialFraudFact.getCreditCardNumber()),potentialFraudFact.getTransactions().toString());
+            String transactionList = "";
 
-
+            for(CreditCardTransaction transaction:potentialFraudFact.getTransactions()) {
+                transactionList += String.valueOf(transaction.getTransactionNumber());
+            }
 
             OutputStream os = conn.getOutputStream();
 
             os.write(new Gson().toJson(potentialFraudFactCaseFile).getBytes());
+            os.write(new Gson().toJson(transactionList).getBytes());
             os.flush();
 
 
@@ -58,7 +62,6 @@ public class CaseMgmt {
         }
 
     }
-
 
 
 
