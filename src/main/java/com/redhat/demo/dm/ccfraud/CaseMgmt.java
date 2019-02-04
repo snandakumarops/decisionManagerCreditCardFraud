@@ -34,7 +34,7 @@ public class CaseMgmt {
 
             if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
                 throw new RuntimeException("Failed : HTTP error code : "
-                        + conn.getResponseCode());
+                        + conn.getResponseCode()+conn.getResponseMessage());
             }
 
             conn.disconnect();
