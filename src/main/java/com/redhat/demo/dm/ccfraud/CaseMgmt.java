@@ -29,7 +29,7 @@ public class CaseMgmt {
             conn.setRequestProperty("Authorization","Basic YWRtaW5Vc2VyOlJlZEhhdA==");
 
             OutputStream os = conn.getOutputStream();
-            os.write(new Gson().toJson(potentialFraudFact).getBytes());
+            os.write(("{\"caseFile_creditCardNumber\":\""+potentialFraudFact.getCreditCardNumber().toString()+"\"").getBytes());
             os.flush();
 
             if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
