@@ -3,8 +3,8 @@ package com.redhat.demo.dm.ccfraud;
 
 
 import com.google.gson.Gson;
-import com.redhat.demo.dm.ccfraud.domain.PotentialFraudFact;
-import com.redhat.demo.dm.ccfraud.domain.PotentialFraudFactCaseFile;
+import com.redhat.demo.dm.ccfraud.domain.*;
+
 
 import java.io.IOException;
 import java.io.OutputStream;
