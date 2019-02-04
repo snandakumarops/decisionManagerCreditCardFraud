@@ -32,7 +32,7 @@ public class CaseMgmt {
             String creditCardString = "{\"caseFile_creditCardNumber\":\""+potentialFraudFact.getCreditCardNumber().toString()+"\"}";
             String transactionsString = "{\"caseFile_transactions\":\""+potentialFraudFact.getTransactions().toString()+"\"}";
             
-            os.write((creditCardString + transactionString).getBytes());
+            os.write((creditCardString + transactionsString).getBytes());
             os.flush();
 
             if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
