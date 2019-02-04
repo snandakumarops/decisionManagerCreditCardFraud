@@ -4,6 +4,16 @@ public class PotentialFraudFactCaseFile {
 
     private String caseFile_creditCardNumber;
     private String caseFile_transactions;
+    private String caseFile_transactionList;
+
+
+    public String getCaseFile_transactionList() {
+        return caseFile_transactionList;
+    }
+
+    public void setCaseFile_transactionList(String caseFile_transactionList) {
+        this.caseFile_transactionList = caseFile_transactionList;
+    }
 
     public String getCaseFile_creditCardNumber() {
         return caseFile_creditCardNumber;
