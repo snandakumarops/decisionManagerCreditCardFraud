@@ -146,11 +146,12 @@ public class Main {
 			try{
 			PotentialFraudFact potentialFraudFact = new Gson().fromJson(jsonString,PotentialFraudFact.class);
 			System.out.print("PotentialFraudFact"+potentialFraudFact);
+			CaseMgmt caseMgmt = new CaseMgmt();
+			caseMgmt.invokeCase(potentialFraudFact);
 			}catch(Exception e){
 			e.printStackTrace();
 			}
-			CaseMgmt caseMgmt = new CaseMgmt();
-			caseMgmt.invokeCase(potentialFraudFact);
+			
 		}
 
 
