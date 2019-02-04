@@ -20,13 +20,13 @@ public class CaseMgmt {
 
         try {
 
-            URL url = new URL("http://localhost:8080/" +
+            URL url = new URL("http://myapp-kieserver.case-mgmt.svc:8080/" +
                     "kie-server/services/rest/server/containers/FraudCaseMgmtSolution_1.0.0/processes/com.myspace.fraudcasemgmtsolution.FraudCaseWorkflow/instances");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/json");
-            conn.setRequestProperty("Authorization","Basic YWdlbnRMb2dpbjpMb3N0MjAxOA==");
+            conn.setRequestProperty("Authorization","Basic YWRtaW5Vc2VyOlJlZEhhdA==");
 
             OutputStream os = conn.getOutputStream();
             os.write(new Gson().toJson(potentialFraudFact).getBytes());
