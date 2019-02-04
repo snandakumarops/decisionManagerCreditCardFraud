@@ -149,8 +149,8 @@ public class Main {
 			}catch(Exception e){
 			e.printStackTrace();
 			}
-//			CaseMgmt caseMgmt = new CaseMgmt();
-//			caseMgmt.invokeCase(potentialFraudFact);
+			CaseMgmt caseMgmt = new CaseMgmt();
+			caseMgmt.invokeCase(potentialFraudFact);
 		}
 
 
