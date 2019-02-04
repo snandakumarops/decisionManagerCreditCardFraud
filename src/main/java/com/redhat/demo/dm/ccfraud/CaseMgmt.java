@@ -29,6 +29,7 @@ public class CaseMgmt {
             conn.setRequestProperty("Authorization","Basic YWRtaW5Vc2VyOlJlZEhhdA==");
 
             OutputStream os = conn.getOutputStream();
+            System.out.println("{\"caseFile_creditCardNumber\":\""+potentialFraudFact.getCreditCardNumber().toString()+"\"");
             os.write(("{\"caseFile_creditCardNumber\":\""+potentialFraudFact.getCreditCardNumber().toString()+"\"").getBytes());
             os.flush();
 
