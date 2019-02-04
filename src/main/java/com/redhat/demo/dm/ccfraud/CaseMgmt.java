@@ -4,6 +4,7 @@ package com.redhat.demo.dm.ccfraud;
 
 import com.google.gson.Gson;
 import com.redhat.demo.dm.ccfraud.domain.PotentialFraudFact;
+import com.redhat.demo.dm.ccfraud.domain.PotentialFraudFactCaseFile;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -28,27 +29,36 @@ public class CaseMgmt {
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setRequestProperty("Authorization","Basic YWRtaW5Vc2VyOlJlZEhhdA==");
 
+            PotentialFraudFactCaseFile potentialFraudFactCaseFile = new PotentialFraudFactCaseFile(String.valueOf(potentialFraudFact.getCreditCardNumber()),potentialFraudFact.getTransactions().toString());
+
+
+
             OutputStream os = conn.getOutputStream();
-            String creditCardString = "{\"caseFile_creditCardNumber\":\""+potentialFraudFact.getCreditCardNumber().toString()+"\"}";
-            String transactionsString = "{\"caseFile_transactions\":\""+potentialFraudFact.getTransactions().toString()+"\"}";
-            
-            os.write((creditCardString + transactionsString).getBytes());
+
+            os.write(new Gson().toJson(potentialFraudFactCaseFile).getBytes());
             os.flush();
+
+
 
             if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
                 throw new RuntimeException("Failed : HTTP error code : "
-                        + conn.getResponseCode()+conn.getResponseMessage());
+                        + conn.getResponseCode());
             }
 
             conn.disconnect();
 
-        } catch (Exception e) {
+        } catch (MalformedURLException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
 
             e.printStackTrace();
 
         }
 
     }
+
 
 
 
