@@ -39,11 +39,7 @@ public class CaseMgmt {
 
             conn.disconnect();
 
-        } catch (MalformedURLException e) {
-
-            e.printStackTrace();
-
-        } catch (IOException e) {
+        } catch (Exception e) {
 
             e.printStackTrace();
 
