@@ -33,7 +33,11 @@ public class CaseMgmt {
             String transactionList = "";
 
             for(CreditCardTransaction transaction:potentialFraudFact.getTransactions()) {
-                transactionList += String.valueOf(transaction.getTransactionNumber());
+                if(transactionList.trim().isEmpty()) {
+                transactionList = transaction.getTransactionNumber() + "";
+                } else {
+                    transactionList = "," + transaction.getTransactionNumber();
+                }
             }
 
             potentialFraudFactCaseFile.setCaseFile_transactionList(transactionList);
