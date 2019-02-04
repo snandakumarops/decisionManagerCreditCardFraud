@@ -21,7 +21,7 @@ public class CaseMgmt {
         try {
 
             URL url = new URL("http://myapp-kieserver.case-mgmt.svc:8080" +
-                    "/services/rest/server/containers/FraudCaseMgmtSolution_1.0.0/processes/com.myspace.fraudcasemgmtsolution.FraudCaseWorkflow/instances");
+                    "/services/rest/server/containers/test-case-project_1.0.0/processes/src.fraudWorkflow/instances");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
