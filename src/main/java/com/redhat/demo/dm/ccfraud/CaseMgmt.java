@@ -36,10 +36,12 @@ public class CaseMgmt {
                 transactionList += String.valueOf(transaction.getTransactionNumber());
             }
 
+            potentialFraudFactCaseFile.setCaseFile_transactionList(transactionList);
+
             OutputStream os = conn.getOutputStream();
 
             os.write(new Gson().toJson(potentialFraudFactCaseFile).getBytes());
-            os.write(new Gson().toJson(transactionList).getBytes());
+
             os.flush();
 
 
