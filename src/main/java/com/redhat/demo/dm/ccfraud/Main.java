@@ -95,7 +95,6 @@ public class Main {
 				while (true) {
 					ConsumerRecords<String, String> records = consumer.poll(1000);
 					for (ConsumerRecord<String, String> record : records) {
-						System.out.println("value"+record.value());
 						creditCardTransaction = new Gson().fromJson(record.value(), CreditCardTransaction.class);
 						processTransaction(creditCardTransaction);
 					}
