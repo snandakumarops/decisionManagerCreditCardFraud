@@ -60,12 +60,7 @@ public class Main {
 			// Load the Drools KIE-Container.
 			kieContainer = KIE_SERVICES.newKieClasspathContainer();
 
-			long transactionTime = 0L;
-			try {
-				transactionTime = DATE_FORMAT.parse("20180629:094000000").getTime();
-			} catch (ParseException pe) {
-				throw new RuntimeException(pe);
-			}
+			
 
 			// Define the new incoming credit-card transaction. In an actual system, this event would come a Kafka stream or a Vert.x EventBus
 			// event.
