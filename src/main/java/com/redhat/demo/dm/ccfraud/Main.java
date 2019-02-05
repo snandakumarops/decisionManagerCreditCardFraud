@@ -25,7 +25,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 
-public class CreditCardFraudVerticle {
+public class Main {
 
     /**
      * Example about Kafka consumer and producer creation
