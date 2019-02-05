@@ -48,7 +48,7 @@ public class Main {
         System.out.print("KIE_SERVICES"+KIE_SERVICES);
         // Load the Drools KIE-Container.
         kieContainer = KIE_SERVICES.newKieClasspathContainer();
-       CreditCardFraudVerticle creditCardFraudVerticle = new CreditCardFraudVerticle();
+       Main creditCardFraudVerticle = new Main();
        creditCardFraudVerticle.exampleCreateConsumerJava(Vertx.vertx());
    }
     public void exampleCreateConsumerJava(Vertx vertx) {
