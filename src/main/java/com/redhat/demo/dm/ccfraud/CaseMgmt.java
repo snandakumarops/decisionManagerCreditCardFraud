@@ -21,13 +21,13 @@ public class CaseMgmt {
 
         try {
 
-            URL url = new URL("http://myapp-kieserver.case-mgmt.svc:8080" +
+            URL url = new URL("http://rhpam7-case-mgmt-kieserver.rhpam7-case-mgmt-developer.svc:8080" +
                     "/services/rest/server/containers/test-case-project_1.0.0/processes/src.fraudWorkflow/instances");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/json");
-            conn.setRequestProperty("Authorization","Basic YWRtaW5Vc2VyOlJlZEhhdA==");
+            conn.setRequestProperty("Authorization","Basic YWRtaW5Vc2VyOnRlc3QxMjM0IQ==");
 
              PotentialFraudFactCaseFile potentialFraudFactCaseFile = new PotentialFraudFactCaseFile(String.valueOf(potentialFraudFact.getCreditCardNumber()),potentialFraudFact.getTransactions().toString());
             String transactionList = "";
