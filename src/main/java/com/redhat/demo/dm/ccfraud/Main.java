@@ -79,6 +79,7 @@ public class Main {
         });
 
         consumer.handler(record -> {
+            System.out.println("Reached stream processing");
             System.out.println(new Gson().fromJson(record.value(), CreditCardTransaction.class));
             CreditCardTransaction creditCardTransaction = new Gson().fromJson(record.value(), CreditCardTransaction.class);
             processTransaction(creditCardTransaction);
