@@ -21,7 +21,7 @@ public class CaseMgmt {
 
         try {
 
-            URL url = new URL("http://rhpam7-case-mgmt-kieserver.rhpam7-case-mgmt-developer.svc:8080" +
+            URL url = new URL("http://rhpam7-case-mgmt-kieserver.rhpam7-case-mgmt.svc:8080" +
                     "/services/rest/server/containers/test-case-project_1.0.0/processes/src.fraudWorkflow/instances");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
