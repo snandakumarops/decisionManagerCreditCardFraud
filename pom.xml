@@ -101,7 +101,7 @@
 		<dependency>
 			<groupId>org.kie</groupId>
 			<artifactId>kie-api</artifactId>
-			<version>7.11.0.Final-redhat-00004</version>
+			<version>7.15.0.Final</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
 		<dependency>
