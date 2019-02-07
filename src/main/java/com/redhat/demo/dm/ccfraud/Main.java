@@ -85,7 +85,7 @@ public class Main {
 
             vertx.<String>executeBlocking(future -> {
 
-                if(!CreditCardFraudVerticle.potentialFraudFactList.isEmpty()) {
+                if(!Main.potentialFraudFactList.isEmpty()) {
                     potentialFraudFactList.forEach(x -> invokeCase(x));
                 }
 
@@ -137,7 +137,7 @@ public class Main {
             PotentialFraudFact potentialFraudFact = new Gson().fromJson(jsonString,PotentialFraudFact.class);
             System.out.print("PotentialFraudFact"+potentialFraudFact);
 
-			CreditCardFraudVerticle.potentialFraudFactList.add(potentialFraudFact);
+			Main.potentialFraudFactList.add(potentialFraudFact);
         }
 
 
