@@ -65,7 +65,7 @@ public class Main {
 
         // subscribe to several topics
         Set<String> topics = new HashSet<>();
-        topics.add("test-vertx");
+        topics.add("events");
 
         consumer.subscribe(topics);
 
