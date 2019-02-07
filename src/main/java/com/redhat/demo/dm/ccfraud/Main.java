@@ -30,7 +30,7 @@ public class Main {
      * @param vertx
      */
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Main_1.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd:HHmmssSSS");
     static List<PotentialFraudFact> potentialFraudFactList = new ArrayList<>();
 
