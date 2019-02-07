@@ -30,7 +30,7 @@ public class Main {
      * @param vertx
      */
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Main_1.class);
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd:HHmmssSSS");
     static List<PotentialFraudFact> potentialFraudFactList = new ArrayList<>();
 
@@ -46,14 +46,14 @@ public class Main {
         System.out.print("KIE_SERVICES"+KIE_SERVICES);
         // Load the Drools KIE-Container.
         kieContainer = KIE_SERVICES.newKieClasspathContainer();
-        Main main = new Main();
-        main.exampleCreateConsumerJava(Vertx.vertx());
+        Main creditCardFraudVerticle = new Main();
+       creditCardFraudVerticle.exampleCreateConsumerJava(Vertx.vertx());
    }
     public void exampleCreateConsumerJava(Vertx vertx) {
 
         // creating the consumer using properties config
         Properties config = new Properties();
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka.kafka.svc:9092");
+        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.GROUP_ID_CONFIG, "test");
@@ -65,7 +65,7 @@ public class Main {
 
         // subscribe to several topics
         Set<String> topics = new HashSet<>();
-        topics.add("events");
+        topics.add("test-vertx");
 
         consumer.subscribe(topics);
 
@@ -83,27 +83,35 @@ public class Main {
             CreditCardTransaction creditCardTransaction = new Gson().fromJson(record.value(), CreditCardTransaction.class);
             processTransaction(creditCardTransaction);
 
-            vertx.<String>executeBlocking(future -> {
 
-                if(!Main.potentialFraudFactList.isEmpty()) {
-                    potentialFraudFactList.forEach(x -> invokeCase(x));
+        });
+
+
+
+
+
+
+
+        }
+
+        private static void invokeCase(PotentialFraudFact potentialFraudFact) {
+            Vertx.vertx().<String>executeBlocking(future -> {
+                try {
+                    CaseMgmt caseMgmt = new CaseMgmt();
+                    caseMgmt.invokeCase(potentialFraudFact);
+
+                }catch(Exception e) {
+                    System.out.print("Business central not yet ready...");
                 }
 
             }, res -> {
 
                 if (res.succeeded()) {
 
-                  System.out.print(res);
+                    System.out.print(res);
                 }
             });
-            });
 
-
-        }
-
-        private void invokeCase(PotentialFraudFact potentialFraudFact) {
-            CaseMgmt caseMgmt = new CaseMgmt();
-            caseMgmt.invokeCase(potentialFraudFact);
         }
 
     private static void processTransaction(CreditCardTransaction ccTransaction) {
@@ -137,7 +145,7 @@ public class Main {
             PotentialFraudFact potentialFraudFact = new Gson().fromJson(jsonString,PotentialFraudFact.class);
             System.out.print("PotentialFraudFact"+potentialFraudFact);
 
-			Main.potentialFraudFactList.add(potentialFraudFact);
+            Main.invokeCase(potentialFraudFact);
         }
 
 
@@ -186,5 +194,7 @@ public class Main {
         }
         return factHandle;
     }
+
+
 
 }
