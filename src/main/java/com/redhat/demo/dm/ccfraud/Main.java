@@ -33,7 +33,7 @@ public class Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd:HHmmssSSS");
-    static List<PotentialFraudFact> potentialFraudFactList = new ArrayList<>();
+    static Vertx vertx = Vertx.vertx();
 
 
 
@@ -48,9 +48,9 @@ public class Main {
         // Load the Drools KIE-Container.
         kieContainer = KIE_SERVICES.newKieClasspathContainer();
         Main creditCardFraudVerticle = new Main();
-       creditCardFraudVerticle.exampleCreateConsumerJava(Vertx.vertx());
+       creditCardFraudVerticle.exampleCreateConsumerJava(vertx);
    }
-    public void exampleCreateConsumerJava(Vertx vertx) {
+    public static void exampleCreateConsumerJava(Vertx vertx) {
 
         // creating the consumer using properties config
         Properties config = new Properties();
@@ -96,7 +96,7 @@ public class Main {
         }
 
         private static void invokeCase(PotentialFraudFact potentialFraudFact) {
-            Vertx.vertx().<String>executeBlocking(future -> {
+            vertx.<String>executeBlocking(future -> {
                 try {
                     CaseMgmt caseMgmt = new CaseMgmt();
                     caseMgmt.invokeCase(potentialFraudFact);
